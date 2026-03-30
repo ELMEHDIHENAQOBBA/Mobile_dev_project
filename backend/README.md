@@ -193,4 +193,4 @@ On startup, `DataSeeder` automatically inserts sample guides **only if the guide
 - Subsequent runs: existing data preserved — no duplicates
 - Profile images are intentionally left empty to avoid external image CORS issues on web
 
-To reseed from scratch, reset the database (see [docs/DATABASE_SETUP.md](../docs/DATABASE_SETUP.md)).
+To reseed from scratch, reset the database (see [README.md — Reset database](../README.md#reset-database-start-fresh)).

@@ -1,20 +1,46 @@
-# Environment / secrets
+# ── Secrets & environment ─────────────────────────────────────────────────────
 .env
 *.env
+!*.env.example
 application-local.properties
 
-# OS
+# ── OS ────────────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# IDE
+# ── IDE ───────────────────────────────────────────────────────────────────────
 .idea/
 *.iml
 .vscode/
+*.suo
+*.user
 
-# Maven
+# ── Backend (Maven / Spring Boot) ─────────────────────────────────────────────
 backend/target/
+backend/*.jar
+backend/*.war
+backend/mvnw
+backend/mvnw.cmd
+backend/.mvn/
 
-# Flutter
+# ── Frontend (Flutter) ────────────────────────────────────────────────────────
 frontend/.dart_tool/
 frontend/build/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.packages
+frontend/pubspec.lock
+frontend/.pub-cache/
+frontend/.pub/
+frontend/ios/Pods/
+frontend/ios/.symlinks/
+frontend/android/.gradle/
+frontend/android/local.properties
+frontend/android/key.properties
+frontend/**/*.g.dart
+frontend/**/*.freezed.dart
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/

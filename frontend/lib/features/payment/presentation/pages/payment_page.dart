@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/features/booking/domain/entities/booking_entity.dart';
-import 'package:flutter_clean_architecture/features/auth/providers/auth_providers.dart';
-import 'package:flutter_clean_architecture/router/routes.dart';
+import 'package:guideme/features/booking/domain/entities/booking_entity.dart';
+import 'package:guideme/features/auth/providers/auth_providers.dart';
+import 'package:guideme/features/payment/providers/payment_providers.dart';
+import 'package:guideme/router/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 

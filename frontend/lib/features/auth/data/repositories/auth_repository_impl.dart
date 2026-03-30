@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_architecture/features/auth/data/datasources/auth_local_data_source.dart';
-import 'package:flutter_clean_architecture/features/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/entities/auth_failure.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/entities/user.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/repositories/auth_repository.dart';
+import 'package:guideme/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:guideme/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:guideme/features/auth/domain/entities/auth_failure.dart';
+import 'package:guideme/features/auth/domain/entities/user.dart';
+import 'package:guideme/features/auth/domain/repositories/auth_repository.dart';
 
 /// Template Repository Implementation
 ///

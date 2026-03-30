@@ -14,4 +14,6 @@ abstract final class Routes {
   // Guide space
   static const guideDashboard = '/guide-dashboard';
   static const guideBookings = '/guide-bookings';
+  // AI Assistant
+  static const aiChat = '/ai-chat';
 }

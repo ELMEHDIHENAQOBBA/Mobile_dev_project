@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/router/routes.dart';
+import 'package:guideme/router/routes.dart';
 import 'package:go_router/go_router.dart';
 
 abstract final class NavigationService {

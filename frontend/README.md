@@ -1,145 +1,120 @@
-# Tourist Guide Uber-Like Mobile Application
+# GuideMe — Frontend
 
-A Flutter mobile application that connects tourists with independent local guides.
-The platform follows an **Uber-like service model**, allowing tourists to search for guides based on budget and preferences, book a guide, and complete the service lifecycle.
+Flutter mobile app for the GuideMe tourist guide platform.
 
-This project was developed as part of a **Mobile Development course project** focused on the *Uberisation of a service*.
+## Requirements
 
----
+- Flutter 3.x (Dart SDK >= 3.2.3)
+- Android Studio / VS Code with Flutter extension
+- Backend running on port 8085 (see `/backend/README.md`)
 
-# 📱 Project Concept
-
-Tourists often struggle to find reliable local guides quickly.
-This application provides a digital marketplace where:
-
-* **Tourists (service beneficiaries)** can find and book guides.
-* **Guides (service providers)** can offer their services and receive booking requests.
-
-The application demonstrates a **Minimum Viable Product (MVP)** capable of validating the business concept.
-
----
-
-# 🏗️ Architecture
-
-The application is built with **Flutter** and follows **Clean Architecture principles**.
-
-```text
-lib/
-├── core/                # Global utilities, configs and services
-├── features/
-│   ├── auth/            # Authentication feature
-│   ├── guides/          # Tourist guide feature
-│   │   ├── data/        # Mock data sources
-│   │   ├── domain/      # Entities and business models
-│   │   └── presentation/# UI pages and widgets
-│   ├── booking/         # Guide reservation
-│   ├── payment/         # Payment simulation
-│   └── reviews/         # Guide rating system
-└── shared/              # Shared UI components
-```
-
-This layered architecture ensures:
-
-* clear separation of concerns
-* maintainable and scalable code
-* easier future backend integration
-
----
-
-# 🚀 MVP Features
-
-The current MVP implements the core workflow of an Uber-like service.
-
-## Tourist (Service Beneficiary)
-
-* Create account / Login
-* Search for guides
-* Filter by destination, budget, language
-* View guide profiles
-* Book a guide
-* Simulate payment
-* Rate the guide after the service
-
-## Guide (Service Provider)
-
-* Login
-* Receive booking requests
-* Confirm service completion
-* View earnings (MVP simulation)
-
-## Administrator (Future extension)
-
-* Manage guides
-* View registered tourists
-* Monitor system activity
-
----
-
-# 🔎 Current User Flow
-
-```text
-Login
- ↓
-Search Guides
- ↓
-Guides List
- ↓
-Guide Details
- ↓
-Book Guide
- ↓
-Payment (MVP simulation)
- ↓
-Service Completion
- ↓
-Leave Review
-```
-
----
-
-# 🧰 Technologies Used
-
-* **Flutter** – Cross-platform mobile development
-* **Flutter Bloc** – State management
-* **GoRouter** – Navigation and routing
-* Mock data sources for MVP validation
-
----
-
-# ⚙️ Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY
-```
-
-Install dependencies:
+## Setup
 
 ```bash
 flutter pub get
-```
-
-Run the application:
-
-```bash
 flutter run
 ```
 
----
+> Make sure the backend is running before launching the app.
 
-# 📦 Deliverables
+## Connecting to the Backend
 
-The final project submission includes:
+The base URL is configured in one place:
 
-* Mobile application APK
-* Hosted web version (optional)
-* Public GitHub repository
-* Demonstration video
-* Project report explaining design choices
+**`lib/core/config/app_config.dart`**
 
----
+```dart
+static const String baseUrl = 'http://localhost:8085/api';
+```
 
-# 🎯 Project Goal
+| Environment | URL to use |
+|---|---|
+| Flutter Web (dev) | `http://localhost:8085/api` |
+| Android Emulator | `http://10.0.2.2:8085/api` |
+| Physical device | `http://<your-machine-ip>:8085/api` |
 
-The goal of this project is to demonstrate how **digital platforms can "Uberize" traditional services**, in this case **local tourism guiding**, by enabling direct interaction between tourists and independent guides through a centralized mobile application.
+Change the `baseUrl` value to match your environment.
+
+## Project Structure
+
+```
+lib/
+├── main.dart                    # App entry point — ProviderScope only
+├── core/
+│   ├── config/app_config.dart   # Base URL, token key
+│   ├── network/app_network.dart # Dio setup + JWT interceptor
+│   └── theme/app_theme.dart     # Light & dark theme
+├── features/
+│   ├── auth/                    # Login, Register, Splash
+│   ├── guides/                  # Guide list, search, details
+│   ├── booking/                 # Create booking, my bookings
+│   ├── guide_space/             # Guide dashboard, incoming bookings
+│   ├── payment/                 # Payment page
+│   ├── reviews/                 # Leave a review
+│   ├── home/                    # Home screen
+│   └── profile/                 # User profile
+├── router/
+│   ├── app_router.dart          # GoRouter route definitions
+│   ├── guards.dart              # Auth guard (redirects to login if not logged in)
+│   └── routes.dart              # Route name constants
+└── shared/
+    └── widgets/                 # Reusable UI components
+```
+
+### Feature structure
+
+Each feature follows Clean Architecture with three layers:
+
+```
+features/<name>/
+├── data/
+│   ├── datasources/   # API calls (Dio)
+│   └── repositories/  # Repository implementations
+├── domain/
+│   ├── entities/      # Pure Dart models (no Flutter dependency)
+│   └── repositories/  # Repository interfaces (contracts)
+├── presentation/
+│   ├── pages/         # Full screens
+│   └── widgets/       # Feature-specific UI components
+└── providers/
+    ├── <name>_notifier.dart   # StateNotifier (state + logic)
+    └── <name>_providers.dart  # Riverpod provider declarations
+```
+
+## State Management
+
+The app uses **Riverpod** exclusively (`flutter_riverpod`).
+
+| Provider file | Provider | Purpose |
+|---|---|---|
+| `auth/providers/auth_providers.dart` | `authNotifierProvider` | Login, register, logout. Also exports `dioProvider` |
+| `guides/providers/guides_providers.dart` | `guidesNotifierProvider` | Fetch & search guides |
+| `booking/providers/booking_providers.dart` | `bookingNotifierProvider` | Create & list bookings |
+| `guide_space/providers/guide_dashboard_providers.dart` | `guideDashboardNotifierProvider` | Guide dashboard & incoming bookings |
+
+### Adding a new feature
+
+1. Create `features/<name>/domain/repositories/<name>_repository.dart` (interface)
+2. Create `features/<name>/data/repositories/<name>_repository_impl.dart`
+3. Create `features/<name>/providers/<name>_notifier.dart` (StateNotifier + State class)
+4. Create `features/<name>/providers/<name>_providers.dart` (wire up using `dioProvider` from `auth_providers.dart`)
+5. Use `ref.watch(...)` / `ref.read(...).notifier` in your pages (extend `ConsumerWidget` or `ConsumerStatefulWidget`)
+
+## Auth Flow
+
+1. App starts → `SplashScreen` checks for a stored JWT token
+2. No token → redirects to `LoginScreen`
+3. On login → JWT stored in `SharedPreferences`, user cached locally
+4. All API requests → `_AuthInterceptor` in `app_network.dart` automatically adds `Authorization: Bearer <token>`
+5. On 401 response → token is cleared, user redirected to login
+
+## Key Dependencies
+
+| Package | Purpose |
+|---|---|
+| `flutter_riverpod` | State management |
+| `go_router` | Declarative navigation |
+| `dio` | HTTP client |
+| `shared_preferences` | JWT token storage |
+| `freezed` | Immutable data classes (auth feature) |
+| `dartz` | Functional error handling (`Either`) in auth |

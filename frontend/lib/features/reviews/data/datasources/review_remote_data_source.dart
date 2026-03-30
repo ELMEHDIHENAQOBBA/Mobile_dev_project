@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture/features/reviews/domain/entities/review_entity.dart';
+import 'package:guideme/features/reviews/domain/entities/review_entity.dart';
 
 class ReviewRemoteDataSource {
   ReviewRemoteDataSource(this._dio);

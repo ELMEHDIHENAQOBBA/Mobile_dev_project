@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/features/booking/data/datasources/booking_remote_data_source.dart';
-import 'package:flutter_clean_architecture/features/booking/domain/entities/booking_entity.dart';
+import 'package:guideme/features/booking/data/datasources/booking_remote_data_source.dart';
+import 'package:guideme/features/booking/domain/entities/booking_entity.dart';
 
 part 'booking_state.dart';
 

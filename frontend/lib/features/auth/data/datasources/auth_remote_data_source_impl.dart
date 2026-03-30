@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture/core/config/app_config.dart';
-import 'package:flutter_clean_architecture/features/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:flutter_clean_architecture/features/auth/data/models/user_model.dart';
+import 'package:guideme/core/config/app_config.dart';
+import 'package:guideme/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:guideme/features/auth/data/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRemoteDataSourceImpl implements IAuthRemoteDataSource {

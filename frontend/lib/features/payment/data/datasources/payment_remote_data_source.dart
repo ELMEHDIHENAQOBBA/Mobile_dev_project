@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture/features/payment/domain/entities/payment_entity.dart';
+import 'package:guideme/features/payment/domain/entities/payment_entity.dart';
 
 class PaymentRemoteDataSource {
   PaymentRemoteDataSource(this._dio);

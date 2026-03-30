@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/features/guides/data/datasources/guides_remote_data_source.dart';
-import 'package:flutter_clean_architecture/features/guides/presentation/cubit/guides_state.dart';
+import 'package:guideme/features/guides/data/datasources/guides_remote_data_source.dart';
+import 'package:guideme/features/guides/presentation/cubit/guides_state.dart';
 
 class GuidesCubit extends Cubit<GuidesState> {
   GuidesCubit(this._dataSource) : super(GuidesInitial());

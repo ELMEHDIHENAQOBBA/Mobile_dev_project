@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/entities/auth_failure.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/entities/user.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/repositories/auth_repository.dart';
+import 'package:guideme/features/auth/domain/entities/auth_failure.dart';
+import 'package:guideme/features/auth/domain/entities/user.dart';
+import 'package:guideme/features/auth/domain/repositories/auth_repository.dart';
 
 /// Template for implementing a use case in Clean Architecture
 ///

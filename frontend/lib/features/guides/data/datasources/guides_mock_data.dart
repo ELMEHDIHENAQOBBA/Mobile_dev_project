@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/features/guides/domain/entities/guide_entity.dart';
+import 'package:guideme/features/guides/domain/entities/guide_entity.dart';
 
 class GuidesMockData {
   static const List<GuideEntity> guides = [

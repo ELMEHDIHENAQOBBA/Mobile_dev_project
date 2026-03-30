@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/features/guides/domain/entities/guide_entity.dart';
-import 'package:flutter_clean_architecture/router/routes.dart';
+import 'package:guideme/features/guides/domain/entities/guide_entity.dart';
+import 'package:guideme/router/routes.dart';
 import 'package:go_router/go_router.dart';
 
 class GuideCard extends StatelessWidget {
@@ -43,7 +43,15 @@ class GuideCard extends StatelessWidget {
                   tag: 'guide_avatar_${guide.id}',
                   child: CircleAvatar(
                     radius: 40,
-                    backgroundImage: NetworkImage(guide.profileImage),
+                    backgroundImage: guide.profileImage.isNotEmpty
+                        ? NetworkImage(guide.profileImage)
+                        : null,
+                    onBackgroundImageError: guide.profileImage.isNotEmpty
+                        ? (_, __) {}
+                        : null,
+                    child: guide.profileImage.isEmpty
+                        ? const Icon(Icons.person, size: 40)
+                        : null,
                   ),
                 ),
                 const SizedBox(width: 16),

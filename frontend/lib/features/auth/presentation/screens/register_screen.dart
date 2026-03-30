@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/features/auth/providers/auth_providers.dart';
-import 'package:flutter_clean_architecture/router/navigation_service.dart';
-import 'package:flutter_clean_architecture/shared/widgets/loading_overlay.dart';
+import 'package:guideme/features/auth/providers/auth_providers.dart';
+import 'package:guideme/router/navigation_service.dart';
+import 'package:guideme/shared/widgets/loading_overlay.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RegisterScreen extends ConsumerStatefulWidget {

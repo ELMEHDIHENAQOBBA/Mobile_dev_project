@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture/core/config/app_config.dart';
+import 'package:guideme/core/config/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppNetwork {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/features/guides/domain/entities/guide_entity.dart';
-import 'package:flutter_clean_architecture/router/routes.dart';
+import 'package:guideme/features/guides/domain/entities/guide_entity.dart';
+import 'package:guideme/router/routes.dart';
 import 'package:go_router/go_router.dart';
 
 class GuideDetailsPage extends StatelessWidget {

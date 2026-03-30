@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/router/routes.dart';
+import 'package:guideme/router/routes.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeLayout extends StatelessWidget {
@@ -9,6 +9,7 @@ class HomeLayout extends StatelessWidget {
   int _currentIndex(String location) {
     if (location.startsWith(Routes.myBookings)) return 1;
     if (location.startsWith(Routes.profile)) return 2;
+    if (location.startsWith(Routes.aiChat)) return 3;
     return 0;
   }
 
@@ -35,12 +36,18 @@ class HomeLayout extends StatelessWidget {
             selectedIcon: Icon(Icons.person),
             label: 'Profile',
           ),
+          NavigationDestination(
+            icon: Icon(Icons.auto_awesome_outlined),
+            selectedIcon: Icon(Icons.auto_awesome),
+            label: 'AI Guide',
+          ),
         ],
         onDestinationSelected: (i) {
           switch (i) {
             case 0: context.go(Routes.searchGuides);
             case 1: context.go(Routes.myBookings);
             case 2: context.go(Routes.profile);
+            case 3: context.go(Routes.aiChat);
           }
         },
       ),

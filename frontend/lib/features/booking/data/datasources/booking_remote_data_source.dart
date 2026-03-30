@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture/features/booking/domain/entities/booking_entity.dart';
+import 'package:guideme/features/booking/domain/entities/booking_entity.dart';
 
 class BookingRemoteDataSource {
   BookingRemoteDataSource(this._dio);

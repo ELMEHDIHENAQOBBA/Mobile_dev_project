@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/features/auth/domain/entities/user.dart';
+import 'package:guideme/features/auth/domain/entities/user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_model.freezed.dart';

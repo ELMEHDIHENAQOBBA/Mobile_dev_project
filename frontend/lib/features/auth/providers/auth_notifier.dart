@@ -1,5 +1,5 @@
-import 'package:flutter_clean_architecture/features/auth/domain/entities/user.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/repositories/auth_repository.dart';
+import 'package:guideme/features/auth/domain/entities/user.dart';
+import 'package:guideme/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -26,7 +26,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     final userOption = await _repository.getCurrentUser();
     state = userOption.fold(
       () => const AuthState.unauthenticated(),
-      (user) => const AuthState.unauthenticated(),
+      (user) => AuthState.authenticated(user),
     );
   }
 

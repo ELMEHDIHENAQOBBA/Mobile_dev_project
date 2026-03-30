@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/entities/auth_failure.dart';
-import 'package:flutter_clean_architecture/features/auth/domain/entities/user.dart';
+import 'package:guideme/features/auth/domain/entities/auth_failure.dart';
+import 'package:guideme/features/auth/domain/entities/user.dart';
 
 /// Template for Auth Repository interface following clean architecture
 ///

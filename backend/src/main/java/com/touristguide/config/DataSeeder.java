@@ -48,7 +48,7 @@ public class DataSeeder implements CommandLineRunner {
                 .city("Marrakech")
                 .transportAvailable(true)
                 .description("Passionate about the history of Marrakech. I offer immersive tours in the Medina, historical monuments, and hidden gems.")
-                .profileImage("https://i.pravatar.cc/150?u=ahmed")
+                .profileImage("")
                 .reviewsCount(124)
                 .build(),
 
@@ -60,7 +60,7 @@ public class DataSeeder implements CommandLineRunner {
                 .city("Fez")
                 .transportAvailable(false)
                 .description("Specialized in culinary and cultural tours. Discover the oldest Medina in the world with a local expert.")
-                .profileImage("https://i.pravatar.cc/150?u=sofia")
+                .profileImage("")
                 .reviewsCount(89)
                 .build(),
 
@@ -72,7 +72,7 @@ public class DataSeeder implements CommandLineRunner {
                 .city("Casablanca")
                 .transportAvailable(true)
                 .description("Explore the modern and traditional sides of Casablanca. Hassan II Mosque, Habous, and coastal rides.")
-                .profileImage("https://i.pravatar.cc/150?u=youssef")
+                .profileImage("")
                 .reviewsCount(56)
                 .build(),
 
@@ -84,7 +84,7 @@ public class DataSeeder implements CommandLineRunner {
                 .city("Marrakech")
                 .transportAvailable(true)
                 .description("Trekking and mountain tours in the Atlas Mountains, just a few hours from Marrakech.")
-                .profileImage("https://i.pravatar.cc/150?u=layla")
+                .profileImage("")
                 .reviewsCount(201)
                 .build(),
 
@@ -96,7 +96,7 @@ public class DataSeeder implements CommandLineRunner {
                 .city("Chefchaouen")
                 .transportAvailable(false)
                 .description("Photography and walking tours in the blue pearl of Morocco. I know all the best spots for pictures.")
-                .profileImage("https://i.pravatar.cc/150?u=mehdi")
+                .profileImage("")
                 .reviewsCount(42)
                 .build()
         );

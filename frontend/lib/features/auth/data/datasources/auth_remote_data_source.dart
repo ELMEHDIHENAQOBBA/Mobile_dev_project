@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/features/auth/data/models/user_model.dart';
+import 'package:guideme/features/auth/data/models/user_model.dart';
 
 /// Template for Remote Data Source in Clean Architecture
 ///

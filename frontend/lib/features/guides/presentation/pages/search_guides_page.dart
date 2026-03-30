@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/router/routes.dart';
+import 'package:guideme/features/guides/providers/guides_providers.dart';
+import 'package:guideme/router/routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/features/guides/presentation/cubit/guides_cubit.dart';
 
-class SearchGuidesPage extends StatefulWidget {
+class SearchGuidesPage extends ConsumerStatefulWidget {
   const SearchGuidesPage({super.key});
 
   @override
-  State<SearchGuidesPage> createState() => _SearchGuidesPageState();
+  ConsumerState<SearchGuidesPage> createState() => _SearchGuidesPageState();
 }
 
-class _SearchGuidesPageState extends State<SearchGuidesPage> {
+class _SearchGuidesPageState extends ConsumerState<SearchGuidesPage> {
   String _selectedCity = 'All';
   RangeValues _budgetRange = const RangeValues(100, 1500);
   String _selectedLanguage = 'All';
@@ -24,7 +24,7 @@ class _SearchGuidesPageState extends State<SearchGuidesPage> {
   final Color _primaryColor = const Color(0xFF2E86C1);
 
   void _onSearch() {
-    context.read<GuidesCubit>().searchGuides(
+    ref.read(guidesNotifierProvider.notifier).searchGuides(
           city: _selectedCity,
           minBudget: _budgetRange.start,
           maxBudget: _budgetRange.end,
@@ -190,7 +190,7 @@ class _SearchGuidesPageState extends State<SearchGuidesPage> {
     required IconData icon,
   }) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
@@ -229,7 +229,7 @@ class _SearchGuidesPageState extends State<SearchGuidesPage> {
 
   Widget _buildBudgetSlider() {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

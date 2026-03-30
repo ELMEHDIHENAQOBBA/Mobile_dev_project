@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/features/auth/presentation/screens/login_screen.dart';
-import 'package:flutter_clean_architecture/features/auth/presentation/screens/register_screen.dart';
-import 'package:flutter_clean_architecture/features/auth/presentation/screens/splash_screen.dart';
-import 'package:flutter_clean_architecture/features/booking/domain/entities/booking_entity.dart';
-import 'package:flutter_clean_architecture/features/booking/presentation/pages/booking_page.dart';
-import 'package:flutter_clean_architecture/features/booking/presentation/pages/my_bookings_page.dart';
-import 'package:flutter_clean_architecture/features/guide_space/presentation/pages/guide_dashboard_page.dart';
-import 'package:flutter_clean_architecture/features/guides/domain/entities/guide_entity.dart';
-import 'package:flutter_clean_architecture/features/guides/presentation/pages/guide_details_page.dart';
-import 'package:flutter_clean_architecture/features/guides/presentation/pages/guides_list_page.dart';
-import 'package:flutter_clean_architecture/features/guides/presentation/pages/search_guides_page.dart';
-import 'package:flutter_clean_architecture/features/home/presentation/layout/home_layout.dart';
-import 'package:flutter_clean_architecture/features/home/presentation/screens/home_screen.dart';
-import 'package:flutter_clean_architecture/features/payment/presentation/pages/payment_page.dart';
-import 'package:flutter_clean_architecture/features/profile/presentation/pages/profile_page.dart';
-import 'package:flutter_clean_architecture/features/reviews/presentation/pages/review_page.dart';
-import 'package:flutter_clean_architecture/router/guards.dart';
-import 'package:flutter_clean_architecture/router/routes.dart';
+import 'package:guideme/features/ai_chat/presentation/pages/ai_chat_page.dart';
+import 'package:guideme/features/auth/presentation/screens/login_screen.dart';
+import 'package:guideme/features/auth/presentation/screens/register_screen.dart';
+import 'package:guideme/features/auth/presentation/screens/splash_screen.dart';
+import 'package:guideme/features/booking/domain/entities/booking_entity.dart';
+import 'package:guideme/features/booking/presentation/pages/booking_page.dart';
+import 'package:guideme/features/booking/presentation/pages/my_bookings_page.dart';
+import 'package:guideme/features/guide_space/presentation/pages/guide_dashboard_page.dart';
+import 'package:guideme/features/guides/domain/entities/guide_entity.dart';
+import 'package:guideme/features/guides/presentation/pages/guide_details_page.dart';
+import 'package:guideme/features/guides/presentation/pages/guides_list_page.dart';
+import 'package:guideme/features/guides/presentation/pages/search_guides_page.dart';
+import 'package:guideme/features/home/presentation/layout/home_layout.dart';
+import 'package:guideme/features/home/presentation/screens/home_screen.dart';
+import 'package:guideme/features/payment/presentation/pages/payment_page.dart';
+import 'package:guideme/features/profile/presentation/pages/profile_page.dart';
+import 'package:guideme/features/reviews/presentation/pages/review_page.dart';
+import 'package:guideme/router/guards.dart';
+import 'package:guideme/router/routes.dart';
 import 'package:go_router/go_router.dart';
 
 final class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
-  static GoRouter get router => GoRouter(
+  static final GoRouter router = GoRouter(
         navigatorKey: _rootNavigatorKey,
         initialLocation: Routes.splash,
         redirect: AuthGuard.guard,
@@ -54,6 +55,7 @@ final class AppRouter {
                   builder: (_, state) => GuideDetailsPage(guide: state.extra as GuideEntity)),
               GoRoute(path: Routes.myBookings, builder: (_, __) => const MyBookingsPage()),
               GoRoute(path: Routes.profile, builder: (_, __) => const ProfilePage()),
+              GoRoute(path: Routes.aiChat, builder: (_, __) => const AiChatPage()),
             ],
           ),
         ],

@@ -1,0 +1,20 @@
+# Environment / secrets
+.env
+*.env
+application-local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Maven
+backend/target/
+
+# Flutter
+frontend/.dart_tool/
+frontend/build/

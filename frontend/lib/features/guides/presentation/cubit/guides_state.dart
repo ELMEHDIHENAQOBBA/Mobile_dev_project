@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_clean_architecture/features/guides/domain/entities/guide_entity.dart';
+import 'package:guideme/features/guides/domain/entities/guide_entity.dart';
 
 abstract class GuidesState extends Equatable {
   const GuidesState();

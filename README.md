@@ -118,7 +118,7 @@ flutter --version
 ### 1. Clone
 
 ```powershell
-git clone <your-repo-url>
+git clone https://github.com/ELMEHDIHENAQOBBA/Mobile_dev_project.git
 cd Mobile_dev_project
 ```
 

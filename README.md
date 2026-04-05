@@ -148,6 +148,13 @@ mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS tourist_guide_db CHARACTER SE
 copy backend\.env.example backend\.env
 ```
 
+### 4. APK
+
+```powershell
+cd frontend
+flutter build apk --release
+```
+
 Edit `backend\.env`:
 
 ```env

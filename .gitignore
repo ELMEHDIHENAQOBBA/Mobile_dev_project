@@ -20,8 +20,6 @@ desktop.ini
 backend/target/
 backend/*.jar
 backend/*.war
-backend/mvnw
-backend/mvnw.cmd
 backend/.mvn/
 
 # ── Frontend (Flutter) ────────────────────────────────────────────────────────
@@ -30,7 +28,6 @@ frontend/build/
 frontend/.flutter-plugins
 frontend/.flutter-plugins-dependencies
 frontend/.packages
-frontend/pubspec.lock
 frontend/.pub-cache/
 frontend/.pub/
 frontend/ios/Pods/

@@ -1,6 +1,8 @@
 # ─── Build stage ──────────────────────────────────────────────────────────
 FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
 WORKDIR /app
+# Since we are already in the 'backend' folder (Root Directory), 
+# we copy directly from here.
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests

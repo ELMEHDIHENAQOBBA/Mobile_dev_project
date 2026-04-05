@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:url_launcher/url_launcher.dart';
 import 'package:guideme/features/auth/providers/auth_providers.dart';
 import 'package:guideme/router/navigation_service.dart';
 import 'package:guideme/router/routes.dart';
@@ -175,6 +177,23 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     onPressed: () => NavigationService.push(context, '/register'),
                     child: const Text("Don't have an account? Register"),
                   ),
+                  
+                  if (kIsWeb) ...[
+                    const SizedBox(height: 48),
+                    const Divider(),
+                    const SizedBox(height: 16),
+                    const Text('Try our mobile experience', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 8),
+                    OutlinedButton.icon(
+                      onPressed: () => launchUrl(Uri.parse('/guide-me.apk')),
+                      icon: const Icon(Icons.android),
+                      label: const Text('Download for Android (.apk)'),
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                      ),
+                    ),
+                  ],
                 ]),
               ),
             ]),

@@ -20,6 +20,7 @@ A full-stack mobile app that connects tourists with local independent guides in 
 - [Environment Variables](#environment-variables)
 - [API Reference](#api-reference)
 - [App Flows](#app-flows)
+- [Production Deployment](#production-deployment)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -373,6 +374,42 @@ curl http://localhost:8085/api/guides -H "Authorization: Bearer $token"
 | Payment | My Bookings → CONFIRMED booking → Pay Now |
 | Review | My Bookings → COMPLETED booking → Leave Review |
 | AI Assistant | Bottom nav "AI Guide" → ask about any Moroccan city |
+
+---
+
+## Production Deployment
+
+### 1. Backend (Render + Aiven)
+The backend is deployed on **Render** using Docker and connects to a **MySQL** instance on **Aiven.io**.
+
+**Environment Variables for Render:**
+- `DB_URL`: `jdbc:mysql://<host>:<port>/defaultdb?ssl-mode=REQUIRED`
+- `DB_USERNAME`: `avnadmin`
+- `DB_PASSWORD`: (your aiven password)
+- `JWT_SECRET`: (your secret)
+- `PORT`: `8080`
+
+### 2. Building the APK (Recommended Method)
+To ensure environment variables (API Keys, Backend URL) are correctly embedded into the mobile app, use the `--dart-define` flag during the build. This bypasses issues where release builds might fail to read the `.env` file.
+
+Run this command in the `frontend` directory:
+
+```powershell
+flutter build apk --release `
+  --dart-define=OPENROUTER_API_KEY=sk-or-v1-your-key-here `
+  --dart-define=BACKEND_URL=https://your-backend.onrender.com/api `
+  --dart-define=AI_MODEL=stepfun/step-3.5-flash:free
+```
+
+**Where to find the APK:** `build\app\outputs\flutter-apk\app-release.apk`
+
+### 3. Hosting the APK (GitHub Pages)
+We use a static landing page to host the APK for easy download.
+
+1.  Move the built APK to `docs/guide-me.apk`.
+2.  Push the `docs/` folder to GitHub.
+3.  Enable **GitHub Pages** in Repository Settings (point to `/docs` folder on `main` branch).
+4.  **Download Link:** `https://ELMEHDIHENAQOBBA.github.io/Mobile_dev_project/`
 
 ---
 
